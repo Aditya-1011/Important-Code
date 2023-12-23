@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+class Node{
+  public:
+  int data;
+  Node * next;
+  Node(int data){
+    // cout<<"implied"<<endl;
+    this->data=data;
+    this->next=NULL;
+  }
+};
+void printt(Node * &head){
+  Node *temp=head;
+  while(temp!=NULL){
+    cout<<temp->data<<"-->";
+    temp=temp->next;
+  }
+}
+void insertt(Node *&head,int da){
+  if(head==NULL){
+    Node* temp=new Node(da);
+    // temp-
+    head=temp;
+  
+
+  }
+  else{
+    Node* temp=new Node(da);
+    temp->next=head;
+    head=temp;
+  }
+}
+void inserttail(Node *&head,int da){
+  if(head==NULL){
+    Node* temp=new Node(da);
+    // temp-
+    head=temp;
+  
+
+  }
+  else{
+    Node* temp=head;
+    while(temp->next!=NULL){
+      temp=temp->next;
+    }
+    Node * tempp=new Node(da);
+    temp->next=tempp;
+
+  }
+}
+
+
+int main() {
+  Node *head=new Node(12);
+  Node *sec=new Node(13);
+  Node *t=new Node(14);
+  Node *f=new Node(15);
+  head->next=sec;
+  sec->next=t;
+  t->next=f;
+  f->next=NULL;
+  printt(head);
+  cout<<endl;
+  insertt(head,121);
+  printt(head);
+  cout<<endl;
+  inserttail(head,11);
+  printt(head);
+
+  
+  return 0;
+}
